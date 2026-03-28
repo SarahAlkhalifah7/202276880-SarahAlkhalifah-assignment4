@@ -1,5 +1,5 @@
 # 202276880-SarahAlkhalifah-assignment2
-# 202276880-SarahAlkhalifah-assignment2
+
 # Assignment 2 - Personal Portfolio (Enhanced)
 
 This is an improved version of my personal portfolio website built using HTML, CSS, and JavaScript.  
