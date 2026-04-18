@@ -5,16 +5,31 @@ function $(selector) {
 
 /* ========= Greeting by time of day ========= */
 function setGreeting() {
-  const el = $("#greeting");
+  const el = document.querySelector("#greeting");
   if (!el) return;
 
+  let name = localStorage.getItem("username");
+
+  // Ask name only once
+  if (!name) {
+    name = prompt("Enter your name:");
+    if (name) {
+      localStorage.setItem("username", name);
+    }
+  }
+
   const hour = new Date().getHours();
-  let text = "Hello!";
+  let text = "Hello";
+
   if (hour >= 5 && hour < 12) text = "Good morning ☀️";
   else if (hour >= 12 && hour < 18) text = "Good afternoon 🌤️";
   else text = "Good evening 🌙";
 
-  el.textContent = text;
+  if (name) {
+    el.textContent = `${text}, ${name}`;
+  } else {
+    el.textContent = text;
+  }
 }
 
 /* ========= Theme toggle (saved to localStorage) ========= */
@@ -175,6 +190,86 @@ function initForm() {
   button.addEventListener("click", loadQuote);
 }
 
+
+/* ========= Weather ========= */
+function initGeoWeather() {
+  const status = document.querySelector("#weatherStatus");
+
+  const cityEl = document.querySelector("#weatherCity");
+  const tempEl = document.querySelector("#weatherTemp");
+  const windEl = document.querySelector("#weatherWind");
+
+  if (!navigator.geolocation) {
+    status.textContent = "Geolocation not supported.";
+    return;
+  }
+
+  status.textContent = "Getting your location...";
+
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const { latitude, longitude } = position.coords;
+
+      try {
+        status.textContent = "Loading weather...";
+
+        const res = await fetch(
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`
+        );
+
+        if (!res.ok) throw new Error();
+
+        const data = await res.json();
+
+        cityEl.textContent = "Your Location";
+        tempEl.textContent = `${data.current.temperature_2m}°C`;
+        windEl.textContent = `${data.current.wind_speed_10m} km/h`;
+        status.textContent = "Weather loaded.";
+      } catch {
+        status.textContent = "Could not load weather.";
+      }
+    },
+    () => {
+      status.textContent = "Location access denied.";
+    }
+  );
+}
+
+/* ========= Project Sort ========= */
+function initProjectSort() {
+  const select = document.querySelector("#sortProjects");
+  const container = document.querySelector(".projects__grid");
+
+  if (!select || !container) return;
+
+  select.addEventListener("change", () => {
+    const projects = Array.from(container.children);
+
+    if (select.value === "az") {
+      projects.sort((a, b) =>
+        a.innerText.localeCompare(b.innerText)
+      );
+    }
+
+    if (["sql", "c", "java"].includes(select.value)) {
+      const chosen = select.value;
+
+      projects.sort((a, b) => {
+        const langA = a.dataset.language;
+        const langB = b.dataset.language;
+
+        // Put selected language first
+        if (langA === chosen && langB !== chosen) return -1;
+        if (langB === chosen && langA !== chosen) return 1;
+
+        return 0;
+      });
+    }
+
+    container.innerHTML = "";
+    projects.forEach(p => container.appendChild(p));
+  });
+}
   
 
 
@@ -192,3 +287,5 @@ initNav();
 initSmoothScroll();
 initForm();
 initQuoteLoader();
+initGeoWeather();
+initProjectSort();

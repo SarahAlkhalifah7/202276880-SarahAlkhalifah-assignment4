@@ -48,6 +48,17 @@
               <a class="btn btn--ghost" href="#contact">Contact Me</a>
             </div>
           </div>
+          <div class="card weather-card">
+            <h3>Weather</h3>
+
+            <p id="weatherStatus" class="muted">Loading...</p>
+
+            <div class="weather-result">
+              <p id="weatherCity">-</p>
+              <p id="weatherTemp">-</p>
+              <p id="weatherWind">-</p>
+            </div>
+          </div>
 
           <div class="hero__card">
             
@@ -100,17 +111,27 @@
           </div>
         </div>
       </section>
-
+      
       <!-- PROJECTS -->
+      
+
       <section class="section" id="projects">
         <div class="container">
           <div class="section__header">
+            
             <h2>Projects</h2>
             <p class="muted">A few projects I’ve worked on during my Software Engineering studies.</p>
+            
           </div>
-
+          <select id="sortProjects" class="sort-select">
+            <option value="default">Sort Projects</option>
+            <option value="az">A–Z</option>
+            <option value="sql">SQL First</option>
+            <option value="c">C First</option>
+            <option value="java">Java First</option>
+          </select>
           <div class="projects__grid">
-            <article class="card project">
+            <article class="card project" data-language="sql">
               
               <div class="project__body">
                 <h3>University Campus Events Database</h3>
@@ -127,7 +148,7 @@
               </div>
             </article>
 
-            <article class="card project">
+            <article class="card project" data-language="c">
               
               <div class="project__body">
                 <h3>Campus Navigation: Fastest Routes</h3>
@@ -144,7 +165,7 @@
               </div>
             </article>
 
-            <article class="card project">
+            <article class="card project" data-language="java">
               
               <div class="project__body">
                 <h3>Student Information Library</h3>
@@ -238,5 +259,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    
   </body>
 </html>

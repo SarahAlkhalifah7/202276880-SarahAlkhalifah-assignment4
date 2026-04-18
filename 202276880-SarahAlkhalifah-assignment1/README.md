@@ -1,8 +1,8 @@
-# 202276880-SarahAlkhalifah-assignment2
-# Assignment 2 
+# 202276880-SarahAlkhalifah-assignment3
+# Assignment 3 – Advanced Functionality
 
-This is an improved version of my personal portfolio website built using HTML, CSS, and JavaScript.  
-It extends Assignment 1 by adding dynamic content, API data handling, animations, and better user feedback.
+This project is an advanced version of my personal portfolio website built using HTML, CSS, and JavaScript.  
+It builds on previous assignments by adding API integration, complex logic, state management, and improved user interaction.
 
 ---
 
@@ -10,39 +10,46 @@ It extends Assignment 1 by adding dynamic content, API data handling, animations
 - Responsive layout for mobile, tablet, and desktop (Flexbox/Grid)
 - About / Projects / Contact sections
 - Dark/Light theme toggle (saved with localStorage)
-- Smooth scrolling navigation
 - Greeting message based on time of day
+- Visitor name stored using localStorage
+- Project sorting (A–Z and by programming language: SQL, C, Java)
+- Location-based weather widget using Geolocation API
+- API integration (Open-Meteo weather API)
+- Smooth scrolling navigation
 - Contact form validation (front-end only)
-- **API integration (fetch data on button click)**
-- **Hover effects and fade-in animations**
-- **User feedback messages (loading, success, error, empty state)**
+- Hover effects and fade-in animations
+- User feedback messages (loading, success, error states)
 
 ---
 
 ## Folder Structure
 - `index.html` (main page)
 - `css/styles.css` (styles and animations)
-- `js/script.js` (interactivity and data handling)
+- `js/script.js` (interactivity and logic)
 - `assets/images/` (images)
 - `docs/ai-usage-report.md` (AI usage)
 - `docs/technical-documentation.md` (technical details)
 
 ---
 
+## How to Run Locally (IMPORTANT)
 
-## How to Run Locally
-1. Download or clone the repository:
-   - `git clone <your-repo-url>`
-2. Open the project folder.
-3. Open `index.html` in your browser (double-click), or run a local server:
-   - VS Code: install "Live Server" extension → right click `index.html` → "Open with Live Server"
+This project **must be opened using a local server**, not by double-clicking `index.html`, because some features (like the weather API and geolocation) require `http://localhost`.
 
-## AI Usage (Short Summary)
-I used AI tools to help generate an initial layout, improve responsive CSS, and review JavaScript validation logic.  
-Full details are in `docs/ai-usage-report.md`.
+### Option 1 (Recommended – VS Code)
+1. Open the project in VS Code
+2. Install the **Live Server** extension
+3. Right-click `index.html`
+4. Click **Open with Live Server**
 
-## Optional Deployment
-You can deploy using GitHub Pages:
-- Settings → Pages → Deploy from branch → select `main` and `/root`
-- Add the live link here after deploying: `<your-live-link>`
+---
 
+### Option 2 (Python)
+Run this in your terminal inside the project folder:
+
+```bash
+python -m http.server 8000
+```
+Then open:
+
+http://localhost:8000

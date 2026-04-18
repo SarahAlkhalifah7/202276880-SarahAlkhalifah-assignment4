@@ -6,40 +6,43 @@ I used **ChatGPT** during this assignment.
 ## How I Used AI
 I used AI mainly for:
 
-- Helping me improve and update the **documentation** after adding new features.
-- Getting help with adding **JavaScript dynamic features** such as project filtering and API integration.
-- Understanding how to use `fetch()` to load data from a public API.
-- Adding simple animations and improving user feedback messages.
+- Helping me update and improve the **documentation** after adding advanced features.
+- Assisting with implementing **API integration** (weather feature using fetch and geolocation).
+- Understanding how to structure **multi-step logic** (getting location → fetching weather → displaying results).
+- Improving **JavaScript logic** for sorting projects and handling user interactions.
+- Enhancing **user feedback messages** (loading, success, and error states).
 
-
-An example is when I added an API feature. AI helped me understand how to fetch data and display it, and how to handle errors if the API fails.
+One example is when I implemented the weather feature. AI helped me understand how to:
+- Use the Geolocation API to get the user's coordinates
+- Fetch weather data from an external API
+- Handle errors when location access is denied or the request fails
 
 ---
 
 ## Benefits of Using AI
-- It helped me understand how to add dynamic features using JavaScript.
-- It made it easier to implement API data handling.
-- It helped improve my documentation and structure.
-- It saved time when I was unsure how to implement certain features.
+- It helped me understand how to implement more advanced JavaScript features.
+- It made API integration easier to learn and apply.
+- It improved the structure and clarity of my documentation.
+- It saved time when solving technical problems.
 
 ---
 
 ## Challenges
-- Some AI suggestions were more complex than needed.
-- I had to debug issues like API errors and CORS problems.
-- I needed to simplify and adapt the code to match my assignment requirements.
+- I had to debug issues such as API errors and CORS restrictions.
+- I needed to simplify and adapt the code to match my project structure.
 
 ---
 
 ## What I Learned
-- How to use JavaScript to create dynamic content.
-- How to fetch and display data from a public API.
-- How to handle errors and provide user feedback.
-- How to use AI as a learning tool rather than copying code.
+- How to integrate external APIs into a web application
+- How to use the Geolocation API in JavaScript
+- How to implement multi-step logic and conditions
+- How to manage state using localStorage
+- How to use AI effectively as a support tool
 
 ---
 
 ## Responsible Use
 I reviewed all AI-generated suggestions before using them.  
-I modified the code to match my project and ensured I understood how it works.  
-I used AI to support my learning and not to replace my own effort.
+I modified and simplified the code to match my project requirements and ensure originality.  
+I made sure I understood all parts of the code I submitted and used AI only to support my learning.
