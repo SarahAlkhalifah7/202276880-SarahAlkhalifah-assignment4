@@ -540,3 +540,25 @@ body[data-theme="light"] .site-header {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
 }
+
+.right-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weather-card,
+.fun-card {
+  max-width: 260px;
+  padding: 12px;
+}
+
+.fun-card p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.fun-card .btn {
+  padding: 6px;
+  font-size: 0.85rem;
+}

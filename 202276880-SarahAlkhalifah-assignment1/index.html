@@ -41,24 +41,32 @@
               I’m <span class="accent">Sarah Alkhalifah</span>, a Software Engineering student.
             </h1>
             <p class="hero__subtitle">
-              Tagline: I build practical systems—from databases to algorithms—with clean, maintainable code.
+              I enjoy building practical systems, working with data, and creating clean web applications.
             </p>
             <div class="hero__actions">
               <a class="btn" href="#projects">View Projects</a>
               <a class="btn btn--ghost" href="#contact">Contact Me</a>
             </div>
           </div>
-          <div class="card weather-card">
-            <h3>Weather</h3>
+          <div class="right-cards">
+  <div class="card weather-card">
+    <h3>Weather</h3>
+    <p id="weatherStatus" class="muted">Loading...</p>
 
-            <p id="weatherStatus" class="muted">Loading...</p>
+    <div class="weather-result">
+      <p id="weatherCity">-</p>
+      <p id="weatherTemp">-</p>
+      <p id="weatherWind">-</p>
+    </div>
+  </div>
 
-            <div class="weather-result">
-              <p id="weatherCity">-</p>
-              <p id="weatherTemp">-</p>
-              <p id="weatherWind">-</p>
-            </div>
-          </div>
+  <div class="card fun-card">
+    <h3>Fun Fact 🎉</h3>
+    <p id="factText">Click the button to see a fun fact!</p>
+    <button class="btn" id="factBtn" type="button">Get Fun Fact</button>
+  </div>
+</div>
+          
 
           <div class="hero__card">
             
@@ -68,7 +76,9 @@
               <li><strong>Goal:</strong> Grow a strong portfolio</li>
             </ul>
           </div>
+          
         </div>
+        
       </section>
 
       <!-- ABOUT -->

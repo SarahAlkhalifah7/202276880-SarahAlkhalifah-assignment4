@@ -214,7 +214,7 @@ function initGeoWeather() {
         status.textContent = "Loading weather...";
 
         const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m`
+          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
         );
 
         if (!res.ok) throw new Error();
@@ -222,8 +222,8 @@ function initGeoWeather() {
         const data = await res.json();
 
         cityEl.textContent = "Your Location";
-        tempEl.textContent = `${data.current.temperature_2m}°C`;
-        windEl.textContent = `${data.current.wind_speed_10m} km/h`;
+        tempEl.textContent = `${data.current_weather.temperature}°C`;
+        windEl.textContent = `${data.current_weather.windspeed} km/h`;
         status.textContent = "Weather loaded.";
       } catch {
         status.textContent = "Could not load weather.";
@@ -279,6 +279,40 @@ function setYear() {
   if (year) year.textContent = String(new Date().getFullYear());
 }
 
+/* ========= Fun Fact ========= */
+
+console.log("script file loaded");
+
+function initFunFact() {
+  console.log("initFunFact started");
+
+  const btn = document.querySelector("#factBtn");
+  const text = document.querySelector("#factText");
+
+  console.log(btn, text);
+
+  if (!btn || !text) return;
+
+  btn.addEventListener("click", async () => {
+     console.log("CLICK WORKED");
+    console.log("Fun fact clicked");
+    text.textContent = "Loading...";
+
+    try {
+      const res = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random");
+      const data = await res.json();
+      text.textContent = data.text;
+    } catch {
+      text.textContent = "Could not load fact. Try again!";
+    }
+  });
+}
+
+
+
+
+
+
 /* ========= Init ========= */
 setGreeting();
 setYear();
@@ -289,3 +323,4 @@ initForm();
 initQuoteLoader();
 initGeoWeather();
 initProjectSort();
+initFunFact();
